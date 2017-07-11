@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+
+development:
+  <<: *default
+  database: e-store_development
+
+test:
+  <<: *default
+  database: e-store_test
+
+production:
+  <<: *default
+  database: e-store_production
+  username: e-store
+  password: <%= ENV['E-STORE_DATABASE_PASSWORD'] %>
