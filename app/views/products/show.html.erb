@@ -1,17 +1,14 @@
 <div class="row clearfix">
-  <div class="panel panel-info">
-    <div class="panel-title">
+  <div class="card">
+    <div class="card-block">
       <h2>Product info:</h2>
-    </div>
-    <div class="panel-body">
       <h3><%= @product.name %></h3>
       <h4> <%= @product.description %></h4>
       <%= image_tag @product.image %>
     </div>
   </div>
-<div>
-
-
+</div>
+<br>
 <% if is_admin? %>
 <div class="panel panel-info">
   <div class="panel-body">
