@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   resources :accounts
 
   resources :orders
+
+  resources :charges
+
 end

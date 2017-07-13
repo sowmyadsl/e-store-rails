@@ -1,15 +1,21 @@
-<h1>Products</h1>
-
-<% @products.each do |product| %>
-<figure><%= image_tag product.image %></figure>
- <p><%= product.name %> | <%= number_to_currency(product.price, raise: true) %>
- <%= form_for @order_item do |f| %>
-   <%= f.hidden_field :product_id, value: product.id %>
-   <%= f.number_field :quantity %>
-   <%= f.submit "Add to cart" %>
- <% end %></p>
+<% if is_admin? %>
+<div class="panel panel-info">
+  <div class="panel-body">
+    <p>Hello Admin! </p>
+    <%= link_to "Add New Product", new_product_path %>
+  </div>
+</div>
 <% end %>
 
-<hr>
+<div class="clearfix row">
+  <h3>Products</h3>
 
-<%= link_to "New Product", new_product_path %>
+  <% @products.each do |product| %>
+   <p><%= link_to product.name, product_path(product) %> | <%= number_to_currency(product.price, raise: true) %>
+   <%= form_for @order_item do |f| %>
+     <%= f.hidden_field :product_id, value: product.id %>
+     <%= f.number_field :quantity %>
+     <%= f.submit "Add to cart" %>
+   <% end %></p>
+  <% end %>
+</div>
