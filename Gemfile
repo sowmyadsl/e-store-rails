@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'dotenv-rails'
+  gem 'simplecov'
 end
 
 group :development do
